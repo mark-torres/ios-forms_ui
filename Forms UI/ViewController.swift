@@ -12,7 +12,7 @@ import UIKit
 // https://www.youtube.com/watch?v=jY9t5rX8wHE
 // https://www.youtube.com/watch?v=yWQq_5oU4Pc
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 	
 	@IBOutlet weak var dateField: UITextField!
 	@IBOutlet weak var nameField: UITextField!
@@ -29,6 +29,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+		setupTextFields()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -72,6 +74,49 @@ class ViewController: UIViewController {
 		textField.inputView = datePicker
 		
 		datePicker.datePickerMode = .date
+	}
+	
+	func setupTextFields() -> Void {
+		dateField.delegate = self
+		nameField.delegate = self
+		ageField.delegate = self
+		addressField.delegate = self
+		emailField.delegate = self
+		phoneField.delegate = self
+		notesField.delegate = self
+		
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
+		view.addGestureRecognizer(tapGesture)
+	}
+	
+	@objc func tapGestureAction() {
+		view.endEditing(true)
+	}
+	
+	// MARK: - Text field delegate
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		switch textField {
+		case nameField:
+			ageField.becomeFirstResponder()
+			break
+		case ageField:
+			addressField.becomeFirstResponder()
+			break
+		case addressField:
+			emailField.becomeFirstResponder()
+			break
+		case emailField:
+			phoneField.becomeFirstResponder()
+			break
+		case phoneField:
+			notesField.becomeFirstResponder()
+			break
+		default:
+			return true
+		}
+		return true
 	}
 }
 
