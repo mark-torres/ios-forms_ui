@@ -8,6 +8,10 @@
 
 import UIKit
 
+// https://www.youtube.com/watch?v=QBuYmP2p3AY
+// https://www.youtube.com/watch?v=jY9t5rX8wHE
+// https://www.youtube.com/watch?v=yWQq_5oU4Pc
+
 class ViewController: UIViewController {
 
 	override func viewDidLoad() {

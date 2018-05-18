@@ -12,6 +12,8 @@
 		A93B229B20AE4FA3000FFB66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93B229920AE4FA3000FFB66 /* Main.storyboard */; };
 		A93B229D20AE4FA3000FFB66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93B229C20AE4FA3000FFB66 /* Assets.xcassets */; };
 		A93B22A020AE4FA3000FFB66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93B229E20AE4FA3000FFB66 /* LaunchScreen.storyboard */; };
+		A93B22A920AE532D000FFB66 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B22A820AE532D000FFB66 /* MyTextField.swift */; };
+		A93B22AB20AE557E000FFB66 /* ExtUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B22AA20AE557E000FFB66 /* ExtUIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A93B229C20AE4FA3000FFB66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A93B229F20AE4FA3000FFB66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93B22A120AE4FA3000FFB66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A93B22A820AE532D000FFB66 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
+		A93B22AA20AE557E000FFB66 /* ExtUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		A93B229420AE4FA3000FFB66 /* Forms UI */ = {
 			isa = PBXGroup;
 			children = (
+				A93B22A720AE52F7000FFB66 /* CustomUI */,
 				A93B229520AE4FA3000FFB66 /* AppDelegate.swift */,
 				A93B229720AE4FA3000FFB66 /* ViewController.swift */,
 				A93B229920AE4FA3000FFB66 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				A93B22A120AE4FA3000FFB66 /* Info.plist */,
 			);
 			path = "Forms UI";
+			sourceTree = "<group>";
+		};
+		A93B22A720AE52F7000FFB66 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				A93B22A820AE532D000FFB66 /* MyTextField.swift */,
+				A93B22AA20AE557E000FFB66 /* ExtUIButton.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93B22A920AE532D000FFB66 /* MyTextField.swift in Sources */,
 				A93B229820AE4FA3000FFB66 /* ViewController.swift in Sources */,
 				A93B229620AE4FA3000FFB66 /* AppDelegate.swift in Sources */,
+				A93B22AB20AE557E000FFB66 /* ExtUIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,11 +293,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VPJJQVPPXZ;
 				INFOPLIST_FILE = "Forms UI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hsoftmobile.Forms-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -292,11 +309,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VPJJQVPPXZ;
 				INFOPLIST_FILE = "Forms UI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hsoftmobile.Forms-UI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
