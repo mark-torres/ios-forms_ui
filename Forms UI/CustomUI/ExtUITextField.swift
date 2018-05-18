@@ -16,10 +16,22 @@ extension UITextField {
 		let borderLayer = CALayer()
 		borderLayer.borderColor = color.cgColor
 		borderLayer.borderWidth = borderWidth
-		borderLayer.frame = CGRect(x: sidePadding * -1, y: borderWidth, width: bounds.size.width + 2 * sidePadding, height: bounds.size.height - 2 * borderWidth)
+		borderLayer.frame = CGRect(x: sidePadding * -1, y: 0.0, width: bounds.size.width + 2 * sidePadding, height: bounds.size.height)
 		
 		self.layer.addSublayer(borderLayer)
 		self.layer.masksToBounds = false
+	}
+	
+	func setAttributedPlaceholderText(_ text: String) -> Void {
+		let font = UIFont.systemFont(ofSize: 14.0)
+		
+		let attributes: [NSAttributedStringKey : Any] = [
+			NSAttributedStringKey.font: font,
+			NSAttributedStringKey.foregroundColor: UIColor.yellow
+		]
+		
+		let attrString = NSAttributedString(string: text, attributes: attributes)
+		attributedPlaceholder = attrString
 	}
 	
 }

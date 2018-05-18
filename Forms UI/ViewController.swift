@@ -11,6 +11,8 @@ import UIKit
 // https://www.youtube.com/watch?v=QBuYmP2p3AY
 // https://www.youtube.com/watch?v=jY9t5rX8wHE
 // https://www.youtube.com/watch?v=yWQq_5oU4Pc
+// https://littlebitesofcocoa.com/246-uitextfield-b-sides
+// https://www.invasivecode.com/weblog/attributed-text-swift/
 
 class ViewController: UIViewController, UITextFieldDelegate {
 	
@@ -61,6 +63,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		emailField.applyBorderedStyle(borderWidth, sidePadding, borderColor)
 		phoneField.applyBorderedStyle(borderWidth, sidePadding, borderColor)
 		notesField.applyBorderedStyle(borderWidth, sidePadding, borderColor)
+		
+		dateField.setAttributedPlaceholderText("BIRTH DATE")
+		nameField.setAttributedPlaceholderText("NAME")
+		ageField.setAttributedPlaceholderText("AGE")
+		addressField.setAttributedPlaceholderText("ADDRESS")
+		emailField.setAttributedPlaceholderText("EMAIL")
+		phoneField.setAttributedPlaceholderText("PHONE")
+		notesField.setAttributedPlaceholderText("NOTES")
 	}
 
 	func addDatePicker(to textField: UITextField) {
