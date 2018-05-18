@@ -28,9 +28,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	
 	var datePicker: UIDatePicker!
 	
+	var placeholderFont: UIFont!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+		placeholderFont = UIFont.systemFont(ofSize: 14.0)
 		
 		setupTextFields()
 	}
@@ -64,7 +68,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		phoneField.applyBorderedStyle(borderWidth, sidePadding, borderColor)
 		notesField.applyBorderedStyle(borderWidth, sidePadding, borderColor)
 		
-		dateField.setAttributedPlaceholderText("BIRTH DATE")
+		//dateField.setAttributedPlaceholderText("BIRTH DATE")
+		dateField.attributedPlaceholder = UIUtils.attributedString(fromText: "BIRTH DATE", withFont: placeholderFont, andColor: UIColor.cyan)
 		nameField.setAttributedPlaceholderText("NAME")
 		ageField.setAttributedPlaceholderText("AGE")
 		addressField.setAttributedPlaceholderText("ADDRESS")

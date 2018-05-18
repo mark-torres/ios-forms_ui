@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A91369ED20AF370900444F04 /* ExtUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91369EC20AF370900444F04 /* ExtUITextField.swift */; };
+		A91369F420AF7D6300444F04 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91369F320AF7D6300444F04 /* UIUtils.swift */; };
 		A93B229620AE4FA3000FFB66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B229520AE4FA3000FFB66 /* AppDelegate.swift */; };
 		A93B229820AE4FA3000FFB66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B229720AE4FA3000FFB66 /* ViewController.swift */; };
 		A93B229B20AE4FA3000FFB66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93B229920AE4FA3000FFB66 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		A91369EC20AF370900444F04 /* ExtUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITextField.swift; sourceTree = "<group>"; };
+		A91369F320AF7D6300444F04 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		A93B229220AE4FA3000FFB66 /* Forms UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forms UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93B229520AE4FA3000FFB66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93B229720AE4FA3000FFB66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				A93B22A820AE532D000FFB66 /* MyTextField.swift */,
 				A93B22AA20AE557E000FFB66 /* ExtUIButton.swift */,
 				A91369EC20AF370900444F04 /* ExtUITextField.swift */,
+				A91369F320AF7D6300444F04 /* UIUtils.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				A93B22A920AE532D000FFB66 /* MyTextField.swift in Sources */,
 				A93B229820AE4FA3000FFB66 /* ViewController.swift in Sources */,
 				A93B229620AE4FA3000FFB66 /* AppDelegate.swift in Sources */,
+				A91369F420AF7D6300444F04 /* UIUtils.swift in Sources */,
 				A91369ED20AF370900444F04 /* ExtUITextField.swift in Sources */,
 				A93B22AB20AE557E000FFB66 /* ExtUIButton.swift in Sources */,
 			);
