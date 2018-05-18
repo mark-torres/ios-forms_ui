@@ -26,25 +26,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	
 	@IBOutlet weak var saveButton: UIButton!
 	
-	var datePicker: UIDatePicker!
+	var birthDatePicker: UIDatePicker!
 	
 	var placeholderFont: UIFont!
+	
+	var currentDate: Date!
+	var minBirthDate: Date!
+	var maxBirthDate: Date!
+	var calendar: Calendar!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		currentDate = Date()
+		calendar = Calendar.current
 		
 		placeholderFont = UIFont.systemFont(ofSize: 14.0)
-		
+		birthDatePicker = UIDatePicker()
+		// configure date picker
+		setupDatePickers()
 		setupTextFields()
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
-		
-		datePicker = UIDatePicker()
-		// configure date picker
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -78,17 +84,49 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		notesField.setAttributedPlaceholderText("NOTES")
 	}
 
-	func addDatePicker(to textField: UITextField) {
+	func linkBirthDatePicker(withTextField textField: UITextField) {
 		let toolbar = UIToolbar()
 		toolbar.sizeToFit()
 		
-		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneSelectingBirthDate))
 		toolbar.setItems([doneButton], animated: false)
 		
 		textField.inputAccessoryView = toolbar
-		textField.inputView = datePicker
+		textField.inputView = birthDatePicker
+	}
+	
+	func setupDatePickers() {
+		birthDatePicker.datePickerMode = .date
 		
-		datePicker.datePickerMode = .date
+		minBirthDate = calendar.date(byAdding: Calendar.Component.year, value: -3, to: currentDate)
+		maxBirthDate = calendar.date(byAdding: Calendar.Component.day, value: 20, to: currentDate)
+		
+		birthDatePicker.date = currentDate
+		birthDatePicker.minimumDate = minBirthDate
+		birthDatePicker.maximumDate = maxBirthDate
+		
+		birthDatePicker.setDate(currentDate, animated: true)
+	}
+	
+	func validateBirthDate() -> Bool {
+		let selectedDate = birthDatePicker.date
+		let selectedDay = calendar.component(Calendar.Component.day, from: selectedDate)
+		
+		if selectedDay == 15 {
+			return false
+		}
+		
+		return true
+	}
+	
+	@objc func doneSelectingBirthDate() {
+		guard validateBirthDate() else {
+			return
+		}
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd"
+		dateField.text = dateFormatter.string(from: birthDatePicker.date)
+		self.view.endEditing(true)
 	}
 	
 	func setupTextFields() -> Void {
@@ -102,6 +140,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
 		view.addGestureRecognizer(tapGesture)
+		
+		linkBirthDatePicker(withTextField: dateField)
 	}
 	
 	@objc func tapGestureAction() {
