@@ -12,19 +12,10 @@ import UIKit
 
 extension UIButton {
 	
-	@IBInspectable var borderWidth: CGFloat {
-		get { return layer.borderWidth }
-		set { layer.borderWidth = borderWidth }
-	}
-	
-	@IBInspectable var cornerRadius: CGFloat {
-		get { return layer.cornerRadius }
-		set { layer.cornerRadius = cornerRadius }
-	}
-	
-	@IBInspectable var borderColor: CGColor {
-		get { return layer.borderColor! }
-		set { layer.borderColor = borderColor }
+	func makeRoundCorners(_ cornerRadius: CGFloat) {
+		
+		self.layer.cornerRadius = cornerRadius
+		
 	}
 	
 }
