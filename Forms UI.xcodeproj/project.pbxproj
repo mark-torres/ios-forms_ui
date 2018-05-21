@@ -16,6 +16,7 @@
 		A93B22A020AE4FA3000FFB66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93B229E20AE4FA3000FFB66 /* LaunchScreen.storyboard */; };
 		A93B22A920AE532D000FFB66 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B22A820AE532D000FFB66 /* MyTextField.swift */; };
 		A93B22AB20AE557E000FFB66 /* ExtUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93B22AA20AE557E000FFB66 /* ExtUIButton.swift */; };
+		A9F12B3420B32DAA00E80D4A /* ReservationDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F12B3320B32DAA00E80D4A /* ReservationDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A93B22A120AE4FA3000FFB66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93B22A820AE532D000FFB66 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
 		A93B22AA20AE557E000FFB66 /* ExtUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIButton.swift; sourceTree = "<group>"; };
+		A9F12B3320B32DAA00E80D4A /* ReservationDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				A93B22AA20AE557E000FFB66 /* ExtUIButton.swift */,
 				A91369EC20AF370900444F04 /* ExtUITextField.swift */,
 				A91369F320AF7D6300444F04 /* UIUtils.swift */,
+				A9F12B3320B32DAA00E80D4A /* ReservationDate.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93B22A920AE532D000FFB66 /* MyTextField.swift in Sources */,
+				A9F12B3420B32DAA00E80D4A /* ReservationDate.swift in Sources */,
 				A93B229820AE4FA3000FFB66 /* ViewController.swift in Sources */,
 				A93B229620AE4FA3000FFB66 /* AppDelegate.swift in Sources */,
 				A91369F420AF7D6300444F04 /* UIUtils.swift in Sources */,
