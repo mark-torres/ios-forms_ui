@@ -14,6 +14,9 @@ import UIKit
 // https://littlebitesofcocoa.com/246-uitextfield-b-sides
 // https://www.invasivecode.com/weblog/attributed-text-swift/
 
+// Keyboard show/hide
+// https://www.youtube.com/watch?v=xVZubAMFuIU
+
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 	
 	@IBOutlet weak var dateField: UITextField!
@@ -39,6 +42,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
 	var maxBirthDate: Date!
 	var calendar: Calendar!
 	
+	@IBOutlet weak var formScrollView: UIScrollView!
+	
+	// MARK: -
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -59,7 +66,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
 	
 	override func viewDidLayoutSubviews() {
 		styleFields()
+		print("viewDidLayoutSubviews")
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		addKBObservers()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		removeKBObservers()
+	}
+	
+	// MARK: -
 	
 	func styleFields() {
 		let borderWidth = CGFloat(2.0)
@@ -245,6 +265,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
 		let selectedMonth = reservationDatePicker.selectedRow(inComponent: 0)
 		let selectedDate = resMonths[selectedMonth].dates[ reservationDatePicker.selectedRow(inComponent: 1) ]
 		print(selectedDate.dateString)
+		notesField.text = selectedDate.dateString
 		self.view.endEditing(true)
 	}
 	
@@ -334,6 +355,35 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
 			reservationDatePicker.reloadComponent(1)
 			reservationDatePicker.selectRow(0, inComponent: 1, animated: true)
 		}
+	}
+	
+	// MARK: - Keyboard show/hide observers
+	
+	func addKBObservers() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow , object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide , object: nil)
+	}
+	
+	func removeKBObservers() {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
+	func adjustInsetForKeyboard(_ show: Bool, notification: Notification) {
+		guard let userInfo = notification.userInfo,
+			let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+				return
+		}
+		let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+		formScrollView.contentInset.bottom += adjustmentHeight
+		formScrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+	}
+	
+	@objc func keyboardWillShow(_ notification: Notification) {
+		adjustInsetForKeyboard(true, notification: notification)
+	}
+	
+	@objc func keyboardWillHide(_ notification: Notification) {
+		adjustInsetForKeyboard(false, notification: notification)
 	}
 }
 
