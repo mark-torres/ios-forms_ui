@@ -34,6 +34,7 @@ TextField
 * https://www.youtube.com/watch?v=yWQq_5oU4Pc
 * https://littlebitesofcocoa.com/246-uitextfield-b-sides
 * https://www.invasivecode.com/weblog/attributed-text-swift/
+* https://www.youtube.com/watch?v=GgSpDBE865E
 
 Keyboard show/hide
 

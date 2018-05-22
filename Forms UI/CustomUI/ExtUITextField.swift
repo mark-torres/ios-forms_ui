@@ -13,13 +13,14 @@ extension UITextField {
 	func applyBorderedStyle(_ borderWidth: CGFloat, _ sidePadding: CGFloat, _ color: UIColor) -> Void {
 		borderStyle = .none
 		
-		let borderLayer = CALayer()
-		borderLayer.borderColor = color.cgColor
-		borderLayer.borderWidth = CGFloat(1.0)
-		borderLayer.frame = CGRect(x: sidePadding * -1, y: 0.0, width: bounds.size.width + 2 * sidePadding, height: bounds.size.height)
+		self.layer.borderColor = color.cgColor
+		self.layer.borderWidth = CGFloat(1.0)
 		
-		self.layer.addSublayer(borderLayer)
-		self.layer.masksToBounds = false
+		let horizontalPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: sidePadding, height: self.bounds.size.height) )
+		self.leftViewMode = .always
+		self.rightViewMode = .always
+		self.leftView = horizontalPaddingView
+		self.rightView = horizontalPaddingView
 	}
 	
 	func setAttributedPlaceholderText(_ text: String) -> Void {

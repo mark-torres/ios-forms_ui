@@ -57,16 +57,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
 		// configure date picker
 		setupDatePickers()
 		setupTextFields()
+		
+		styleFields()
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
-	}
-	
-	override func viewDidLayoutSubviews() {
-		styleFields()
-		print("viewDidLayoutSubviews")
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
